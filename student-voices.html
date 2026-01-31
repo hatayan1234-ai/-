@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>先輩からの手紙｜大阪大谷大学 心理・福祉学科</title>
+    <style>
+        :root {
+            --bg-color: #f0f8ff; /* 少し青みがかった優しい白に */
+            --main-navy: #002147;
+            --accent-gold: #ffd700;
+            --accent-pink: #ffb6c1; /* 可愛らしいアクセントカラーを追加 */
+            --white: #ffffff;
+            --text-dark: #333333; /* 文字色を少し柔らかく */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            /* 背景にうっすらドット柄を追加 */
+            background-image: radial-gradient(var(--accent-pink) 1px, transparent 1px), radial-gradient(var(--accent-pink) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: var(--text-dark);
+            /* フォントを丸ゴシック系に変更して柔らかい印象に */
+            font-family: "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "Rounded Mplus 1c", sans-serif;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        nav {
+            background-color: var(--main-navy);
+            padding: 15px 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--accent-gold); /* ナビ下にゴールドのラインを追加 */
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.9em;
+            font-weight: 900;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--accent-gold); }
+
+        header {
+            background-color: var(--main-navy);
+            color: var(--white);
+            padding: 150px 20px 50px 20px;
+            text-align: center;
+            /* ヘッダー下部を波型に */
+            border-radius: 0 0 50% 50% / 0 0 20px 20px;
+        }
+        
+        header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        header p { font-size: 1.1em; }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95); /* 少し透過させる */
+            border-radius: 25px; /* 角丸を強調 */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative; /* イラスト配置のため */
+        }
+        
+        /* 先輩イラストのスタイル */
+        .top-illust-wrap {
+            text-align: center;
+            margin: -70px 0 30px 0; /* ヘッダーに少し重ねる */
+            position: relative;
+            z-index: 10;
+        }
+        .top-illust {
+            max-width: 320px;
+            height: auto;
+            /* イラストに白い縁取りと影をつけてポップに */
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        h2 {
+            color: var(--main-navy);
+            /* 下線マーカー風のデザイン */
+            border-left: none;
+            background: linear-gradient(transparent 70%, var(--accent-pink) 70%);
+            display: inline-block;
+            padding: 0 5px;
+            margin: 50px 0 25px 0;
+            font-size: 1.6em;
+        }
+
+        .message-section { margin-bottom: 50px; }
+
+        /* メッセージボックスを可愛らしく */
+        .highlight-box {
+            background-color: #fffaf0; /* クリーム色っぽく */
+            border: 3px dashed var(--accent-pink); /* ピンクの破線枠に */
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 5px 5px 0 rgba(255, 182, 193, 0.3); /* ポップな影を追加 */
+        }
+        
+        .highlight-box ul { padding-left: 25px; }
+        .highlight-box li { margin-bottom: 10px; }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent-gold); /* タグをゴールドに */
+            color: var(--main-navy);
+            padding: 4px 15px;
+            border-radius: 15px; /* 丸くする */
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 900;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .shinpuku-area {
+            text-align: center;
+            margin: 70px 0 30px 0;
+            background-color: #eaffea; /* しんぷくちゃんエリアは緑系で */
+            padding: 30px;
+            border-radius: 25px;
+            border: 3px dotted var(--sub-green);
+        }
+
+        .shinpuku-img { max-width: 250px; height: auto; }
+
+        .back-btn {
+            display: inline-block;
+            width: 240px;
+            margin: 50px auto 0;
+            padding: 18px;
+            background: var(--main-navy);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px; /* ボタンも丸く */
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.1em;
+            transition: transform 0.2s, background-color 0.3s;
+            border: 3px solid var(--accent-gold); /* ゴールドの枠線を追加 */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            background-color: #003366;
+        }
+        
+        .btn-wrap { text-align: center; }
+
+        footer {
+            background-color: var(--main-navy);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            /* フッター上部も波型に */
+            border-radius: 20px 20px 0 0 / 50% 50% 0 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">ホームへ戻る</a>
+</nav>
+
+<header>
+    <h1>先輩からの手紙</h1>
+    <p>心理・福祉学科の先輩たちが、リアルな学生生活を教えます！</p>
+</header>
+
+<div class="container">
+    <div class="top-illust-wrap">
+        <img src="image_1.png" alt="案内してくれる先輩たち" class="top-illust">
+    </div>
+
+    <section class="message-section">
+        <h2>私たちがこの大学を選んだ理由</h2>
+        <div class="highlight-box">
+            <p>先輩たちが大谷を選んだ決め手は、心理と福祉をどちらも深く学べる環境でした。</p>
+            <ul>
+                <li>「心理か福祉か、まだはっきり決まっていなかったので、両方学んでから選べるのが魅力でした」</li>
+                <li>「身近な人の心の支えになりたいという夢を、多角的な視点から叶えられると思ったからです」</li>
+                <li>「オープンキャンパスで感じた、先生と学生の距離の近さと温かさに安心しました」</li>
+                <li>「取得できる資格が多く、ダブルライセンスを目指せる点に惹かれました」</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <h2>キャンパスライフの日常</h2>
+        <div class="highlight-box">
+            <span class="tag">部活動</span>
+            <p>写真部では、他学年や他学部と交流しながら、軽音部やダンス部の撮影をしたり、いちご狩りなどの遠足に出かけたりしています。文芸部では、大学祭で部員の作品をまとめた本を配布する楽しさがあります。</p>
+            
+            <span class="tag">アルバイト</span>
+            <p>スーパーの惣菜担当や、地元の天ぷら屋さん、塾の先生など、皆それぞれ工夫して働いています。接客を通じて、大学で学んだコミュニケーションのコツを活かせる瞬間もあります。</p>
+            
+            <span class="tag">通学と住まい</span>
+            <p>地元から自転車で通う学生もいれば、電車で2時間弱かけて通う学生もいます。また、他県から来て一人暮らしをしている仲間もたくさんいて、刺激になります。</p>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <h2>入学してからの嬉しい変化</h2>
+        <div class="highlight-box">
+            <ul>
+                <li><strong>自分への向き合い方</strong>：心理テストやグループワークを通じて、自分自身の長所や短所を知ることで、物事の捉え方が変わってきました。</li>
+                <li><strong>対話の自信</strong>：最初は話し合いが苦手だったけれど、少しずつ自分の意見を提案できるようになり、成長を実感しています。</li>
+                <li><strong>専門的な学び</strong>：2回生になると専門性が増し、臨床心理から社会福祉までじっくり学べる環境にやりがいを感じています。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <h2>私たちの挑戦</h2>
+        <div class="highlight-box">
+            <p>1期生として、学科紹介のリーフレット制作でリーダーを務めたり、オープンキャンパスのスタッフとして仲間と企画を練ったり。自分たちの学びを形にする挑戦を続けています。</p>
+        </div>
+    </section>
+
+    <div class="shinpuku-area">
+        <img src="しんぷくちゃんよろしくね！.jpg" alt="しんぷくちゃん：よろしくね！" class="shinpuku-img">
+        <p style="margin-top: 15px; color: var(--main-navy); font-size: 1.2em; font-weight: 900;">皆さんと一緒に学べる日を、楽しみに待っています！</p>
+    </div>
+
+    <div class="btn-wrap">
+        <a href="index.html" class="back-btn">ポータルサイトTOPへ戻る</a>
+    </div>
+</div>
+
+<footer>
+    <strong>大阪大谷大学 人間社会学部 心理・福祉学科</strong><br>
+    <p style="font-size:0.75em; margin-top:10px; opacity:0.6;">&copy; 2026 Osaka Ohtani University.</p>
+</footer>
+
+</body>
+</html>

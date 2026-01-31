@@ -94,6 +94,34 @@
             margin: 40px 0;
         }
 
+        /* 誘導ボタンのデザイン */
+        .interview-cta {
+            background-color: #fff9f0;
+            border: 3px dashed var(--main-navy);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .btn-interview {
+            display: inline-block;
+            background-color: var(--main-navy);
+            color: var(--white);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        .btn-interview:hover {
+            background-color: var(--sub-green);
+            transform: scale(1.05);
+        }
+
         .faculty-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -135,6 +163,7 @@
 <nav>
     <a href="index.html">トップへ戻る</a>
     <a href="#fields">活躍の場</a>
+    <a href="interview.html">卒業生の声</a>
     <a href="#support">就職支援</a>
 </nav>
 
@@ -148,9 +177,21 @@
     <section id="concept">
         <h2>二兎を追い、二兎とも得る学び</h2>
         <p style="font-weight: 700;">
-            本学科では、心理学で「心を深く理解する力」を、社会福祉学で「生活を支える制度を繋ぐ力」を養います。 これは，心理・福祉学科ができる前のこと，「私は心理学を勉強したいのか．それとも対人支援の仕事がしたいのか迷っている」という学生さんの言葉にお答えしたものです ．心理コースか社会福祉コースか選択するのは二年生になる前です ．またどちらのコースに所属してもダブル資格を目指すことができます ．教員も心理系の先生も社会福祉系の先生もいらっしゃいますがどちらのゼミに所属しても同じくダブル資格を目指すことができます ．<br><br>
-            ことわざに「二兎を追う者は一兎をも得ず」とありますが、複雑な現代社会の課題解決には、一つの視点だけでは足りません。 私たちは<span style="color: var(--main-navy); font-size: 1.1em; background: linear-gradient(transparent 70%, #ffd700 70%);">「二兎を追い、二兎とも得る（あれかこれかではなく、あれもこれも）」</span>という欲張りな学びこそが、将来の多様なキャリアを切り拓く最強の武器になると確信しています。
+            本学科では、心理学で「心を深く理解する力」を、社会福祉学で「生活を支える制度を繋ぐ力」を養います。心理コースか社会福祉コースか選択するのは二年生になる前です。またどちらのコースに所属してもダブル資格を目指すことができます。<br><br>
+            複雑な現代社会の課題解決には、一つの視点だけでは足りません。 私たちは「二兎を追い、二兎とも得る（あれかこれかではなく、あれもこれも）」という欲張りな学びこそが、将来の多様なキャリアを切り拓く最強の武器になると確信しています。
         </p>
+    </section>
+
+    <section class="interview-cta">
+        <p style="font-size: 1.2em; color: var(--main-navy); margin-bottom: 10px;">
+            「私にも、誰かの力になれるのかな？」
+        </p>
+        <p style="font-weight: 700; line-height: 1.6;">
+            そう不安に思っているあなたへ。<br>
+            自分自身の弱さや悩みを知っているからこそ、<br>
+            現場で輝いている卒業生たちがいます。
+        </p>
+        <a href="interview.html" class="btn-interview">先輩たちのインタビューを聴く</a>
     </section>
 
     <section id="fields">
@@ -159,25 +200,25 @@
             <div class="faculty-card">
                 <div>
                     <span class="faculty-name" style="font-size: 1.1em;">🛡️ 対人支援の専門職</span>
-                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">社会福祉士として高齢者・障がい者・児童施設、病院の相談員（MSW）、社会福祉協議会などで活躍。 現場の実情を深く理解する専門職を目指します。</p>
+                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">社会福祉士として高齢者・障がい者・児童施設、病院の相談員（MSW）などで活躍。 現場の実情を深く理解する専門職を目指します。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
                     <span class="faculty-name" style="font-size: 1.1em;">🏛️ 公務員，行政の専門職</span>
-                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">児童相談所の児童福祉司、大阪府立の社会福祉施設や保健所、スクールソーシャルワーカー、市役所の福祉職など。 行政や学校の現場から、制度と心で人々を支えます。</p>
+                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">児童養護施設の指導員や保健所の相談員など。 行政や学校の現場から、制度と心で人々を支えます。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
                     <span class="faculty-name" style="font-size: 1.1em;">🧠 心理の専門家（大学院）</span>
-                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">大学院へ進学し、公認心理師を目指します。 医療、司法、産業領域など、より高度な心理的支援のプロフェッショナルへ進む道です。</p>
+                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">大学院へ進学し、公認心理師を目指します。より高度な心理的支援のプロフェッショナルへ進む道です。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
                     <span class="faculty-name" style="font-size: 1.1em;">💼 一般企業・ビジネス</span>
-                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">人事、営業、サービス業、ドラッグストア運営など。 「人の心を理解し、環境を整える調整力」は、あらゆるビジネスシーンで高く評価されます。</p>
+                    <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">「人の心を理解し、環境を整える調整力」は、あらゆるビジネスシーンで高く評価されます。</p>
                 </div>
             </div>
         </div>
@@ -188,8 +229,8 @@
         <div class="highlight-box">
             <ul style="padding-left: 20px; line-height: 1.9; font-weight: 700;">
                 <li style="margin-bottom: 15px;">
-                    <strong>国家資格「キャリアコンサルタント」を持つ教員が進路・就職を直接担当</strong> <br>
-                    <span style="font-weight: normal;">現場経験豊富なベテラン教員や就職支援のプロが、エントリーシート添削から面接対策まで、あなたの個性に寄り添って伴走します。</span>
+                    <strong>国家資格を持つ教員が進路・就職を直接担当</strong><br>
+                    <span style="font-weight: normal;">現場経験豊富なベテラン教員が、エントリーシート添削から面接対策まで個性に寄り添って伴走します。</span>
                 </li>
                 <li style="margin-bottom: 15px;">
                     <strong>「心理×福祉」が最強の自己アピールに</strong> <br>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープンキャンパス特別招待状｜大阪大谷大学 心理・福祉学科</title>
+    <style>
+        :root {
+            --bg-color: #fff9f0;
+            --main-navy: #002147;
+            --accent-gold: #ffd700;
+            --white: #ffffff;
+            --text-dark: #111111;
+            --sub-orange: #ff9800;
+            --pop-orange-light: #fff3e0;
+            --soft-blue: #e3f2fd;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", "Meiryo", sans-serif;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        nav {
+            background-color: var(--main-navy);
+            padding: 15px 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.9em;
+            font-weight: 900;
+        }
+
+        header {
+            background-color: var(--main-navy);
+            color: var(--white);
+            padding: 160px 20px 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            letter-spacing: 0.1em;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .main-catch {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin: 25px 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 40px 30px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--main-navy);
+            border-left: 12px solid var(--sub-orange);
+            background: linear-gradient(to right, #fff3e0, transparent);
+            padding: 10px 20px;
+            margin: 60px 0 30px 0;
+            font-size: 1.8em;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* 指定された6枚の写真 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .photo-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .lecture-card {
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .teacher-info {
+            color: var(--sub-orange);
+            font-size: 1.1em;
+            font-weight: 900;
+        }
+        .lecture-title {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: var(--main-navy);
+        }
+        .status-label {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #95a5a6;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 10px;
+            border-radius: 5px;
+        }
+
+        .shinpuku-box {
+            display: flex;
+            align-items: center;
+            background-color: #fffde7;
+            border: 3px dashed var(--sub-orange);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        .shinpuku-img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .shinpuku-txt {
+            font-size: 1.2em;
+            color: var(--main-navy);
+            font-weight: 900;
+        }
+
+        .btn-apply {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background-color: #2196f3;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6em; }
+            .shinpuku-box { flex-direction: column; text-align: center; }
+            .shinpuku-img { margin-right: 0; margin-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">トップへ戻る</a>
+</nav>
+
+<header>
+    <h1>心理・福祉学科の教員 そして先輩たちが<br>当日 あなたを待っています</h1>
+    <div class="main-catch">
+        ネットでは伝わらない、本当の学びと熱量。<br>
+        「しんぷくちゃんと 心理・福祉学科で自分探しに出かけよう！」
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="photo-grid">
+        <img src="bandicam 2026-02-01 00-34-53-128.jpg" alt="教員と学生">
+        <img src="bandicam 2026-02-01 00-37-44-397.jpg" alt="授業風景">
+        <img src="bandicam 2026-02-01 00-32-52-882.jpg" alt="体験コーナー">
+        <img src="bandicam 2026-02-01 00-34-13-658.jpg" alt="プレゼンテーション">
+        <img src="bandicam 2026-02-01 00-34-02-527.jpg" alt="心理テスト体験">
+        <img src="bandicam 2026-02-01 00-33-23-993.jpg" alt="専門講義">
+    </div>
+
+    <section id="lectures">
+        <h2>模擬授業・体験プログラム（予定）</h2>
+        <p>10時30分より約25分間実施予定。心理学と社会福祉の専門家たちが、当日あなたをお待ちしています。</p>
+        
+        <div class="lecture-list">
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">上西 裕之 准教授</span>
+                <div class="lecture-title">「簡単な心理テストを体験し、自分のこころについて考えてみよう」</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">植木 是 准教授</span>
+                <div class="lecture-title">「相談援助の専門職『社会福祉士』とその貢献可能性」</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">田沢 晶子 教授</span>
+                <div class="lecture-title">「一人ひとり違うココロの傾向、私たち人間に共通する心理について解説します」</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">谷 俊英 准教授</span>
+                <div class="lecture-title">「社会福祉の観点から、将来役立つ子育てやコミュニケーションを考えます」</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">宮谷 佑史 先生</span>
+                <div class="lecture-title">騙される脳と心</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">河崎 俊博 教授</span>
+                <div class="lecture-title">フォーカシングと心</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">安田 傑 教授</span>
+                <div class="lecture-title">相手の気持ちを動かすコミュニケーション（心理学）</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">船本 淑恵 教授</span>
+                <div class="lecture-title">誰もが自分らしく暮らせる社会へ ―ソーシャルワークの視点―</div>
+            </div>
+            <div class="lecture-card">
+                <span class="status-label">予定</span>
+                <span class="teacher-info">秦 康宏 教授</span>
+                <div class="lecture-title">世界（北欧・アジア）から見た日本の福祉の未来</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="shinpuku-box">
+        <img src="ehehe.jpg" alt="しんぷくちゃん" class="shinpuku-img">
+        <div class="shinpuku-txt">
+            しんぷくちゃんと一緒に、心理・福祉学科で自分探しに出かけよう！<br>
+            会場の11号館2階で待ってるよ！
+        </div>
+    </div>
+
+    <section id="entry">
+        <h2>会場での実感が、合格への鍵になる</h2>
+        <p>総合型選抜入試（オープンキャンパス参加型）では、会場で感じたことや先生・先輩との対話が、あなただけの「志望理由」を支える大きな経験になります。皆さんのご参加を心よりお待ちしています。</p>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://www.osaka-ohtani.ac.jp/admission/" class="btn-apply">オープンキャンパスを予約する</a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <strong>大阪大谷大学 人間社会学部 心理・福祉学科</strong><br>
+        <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.7;">&copy; 2026 Osaka Ohtani University Dept. of Psychology and Social Welfare.</p>
+    </div>
+</footer>
+
+</body>
+</html>

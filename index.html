@@ -7,21 +7,48 @@
     <title>大阪大谷大学 心理・福祉学科｜ポータルサイト公式</title>
     <style>
         :root {
+            /* ベースカラー：ご指定の薄緑色 */
             --bg-color: #eaffea;
-            --main-navy: #002147;
-            --accent-gold: #ffd700;
+            
+            /* 【修正】落ち着いた「3色」のアカデミック・ナチュラル配色 */
+            --col-green: #66bb6a;       /* 穏やかなリーフグリーン */
+            --col-cream: #fff59d;       /* 優しいクリームイエロー */
+            --col-blue: #80cbc4;        /* 知的なミストブルー */
+            
+            /* 文字色・アクセント */
+            --main-text: #1a1a1a;       /* 濃い黒（読みやすさ重視） */
+            --main-accent: #2e7d32;     /* 引き締め用の濃い緑 */
             --white: #ffffff;
-            --text-dark: #111111;
-            --sub-green: #4caf50;
+            
+            /* 【修正】落ち着いたストライプパターン */
+            --stripe-pattern: repeating-linear-gradient(
+                45deg,
+                var(--col-green),
+                var(--col-green) 10px,
+                var(--col-cream) 10px,
+                var(--col-cream) 20px,
+                var(--col-blue) 20px,
+                var(--col-blue) 30px
+            );
+
+            /* デザイン要素 */
+            --shadow-soft: 0 5px 15px rgba(46, 125, 50, 0.1);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-dark);
+            /* 背景にうっすらと方眼（グリッド）を入れてノートのような知的な雰囲気に */
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+            background-size: 20px 20px;
+            
+            color: var(--main-text);
             font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", "Meiryo", sans-serif;
-            font-weight: 700; 
+            font-weight: 500; 
+            font-size: 16px; /* 文字サイズを少し大きく確保 */
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -29,176 +56,345 @@
 
         /* ナビゲーション */
         nav {
-            background-color: var(--main-navy);
+            background: rgba(255, 255, 255, 0.98);
             padding: 15px 40px;
             position: fixed;
             top: 0; left: 0; right: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             flex-wrap: wrap;
+            /* 下線にストライプを使用 */
+            border-bottom: 5px solid transparent;
+            border-image: var(--stripe-pattern) 1 stretch;
         }
 
         nav a {
-            color: var(--white);
+            color: var(--main-accent);
             text-decoration: none;
-            margin-left: 15px;
-            font-size: 0.9em;
-            font-weight: 900;
+            margin: 5px 15px;
+            font-size: 0.95em;
+            font-weight: 800;
             white-space: nowrap;
+            transition: color 0.3s;
+            position: relative;
         }
+
+        nav a:hover { color: var(--col-green); }
+
+        /* ホバー時の下線アニメーション */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--stripe-pattern);
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
 
         .nav-lecture {
-            color: var(--accent-gold) !important;
-            border: 1px solid var(--accent-gold);
-            padding: 2px 8px;
-            border-radius: 4px;
+            background: var(--main-accent);
+            color: var(--white) !important;
+            padding: 5px 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 0 var(--col-cream);
         }
+        .nav-lecture:hover {
+            transform: translate(1px, 1px);
+            box-shadow: none;
+        }
+        .nav-lecture::after { display: none; }
 
         header {
-            background-color: var(--main-navy);
+            /* 落ち着いたグリーンのグラデーション */
+            background: linear-gradient(135deg, #2e7d32, #81c784);
             color: var(--white);
-            padding: 160px 20px 60px 20px;
+            padding: 180px 20px 100px 20px;
             text-align: center;
+            position: relative;
+            /* 緩やかなカーブで優しさを表現 */
+            border-bottom-left-radius: 50% 30px;
+            border-bottom-right-radius: 50% 30px;
         }
 
         header h1 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             margin: 0;
             letter-spacing: 0.1em;
             font-weight: 900;
             line-height: 1.3;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
         }
 
         .main-catch {
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: 900;
-            color: var(--accent-gold);
+            color: var(--col-cream);
             margin: 25px 0;
             line-height: 1.5;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
         }
 
+        /* メインコンテナ（ストライプ枠） */
         .container {
             max-width: 1000px;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin: -60px auto 40px auto;
+            padding: 10px; /* ストライプの太さ */
+            background-image: var(--stripe-pattern);
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            z-index: 10;
+        }
+        .container-inner {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
         }
 
         h2 {
-            color: var(--main-navy);
-            border-left: 12px solid var(--main-navy);
-            padding: 5px 0 5px 20px;
-            margin: 60px 0 25px 0;
+            color: var(--main-accent);
+            /* 下線にストライプを使用 */
+            border-bottom: 4px solid;
+            border-image: var(--stripe-pattern) 1 stretch;
+            border-left: none;
+            padding: 10px 0;
+            margin: 60px 0 30px 0;
             font-size: 1.8em;
+            text-align: center;
+            position: relative;
+            font-weight: 800;
+        }
+        
+        /* 見出しの装飾（ワンポイント） */
+        h2::before {
+            content: '●';
+            color: var(--col-green);
+            font-size: 0.8em;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 10px;
         }
 
         .img-center-wrap { text-align: center; margin: 30px 0; }
-        .content-img { width: 100%; height: auto; border-radius: 10px; border: 2px solid #eee; display: inline-block; }
+        .content-img { width: 100%; height: auto; border-radius: 15px; border: 4px solid var(--white); box-shadow: var(--shadow-soft); display: inline-block; }
         .img-student { max-width: 350px; }
-        .img-caption { display: block; font-size: 0.9em; color: #444; margin-top: 10px; font-weight: 800; }
+        
+        /* --- スライドショー --- */
+        .slideshow-container {
+            max-width: 480px;
+            position: relative;
+            margin: 50px auto;
+            padding: 8px; /* ストライプ枠 */
+            background-image: var(--stripe-pattern);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        .slideshow-inner {
+            background: var(--white);
+            padding: 5px;
+            border-radius: 12px;
+        }
+        .mySlides { display: none; text-align: center; }
+        .slide-img {
+            width: 100%;
+            height: 320px;
+            border-radius: 8px;
+            object-fit: cover; 
+        }
+        /* 顔が見切れないようにするクラス */
+        .slide-img-contain { object-fit: contain !important; }
 
+        .fade { animation-name: fade; animation-duration: 1.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+        .img-caption {
+            display: block;
+            font-size: 0.95em;
+            color: var(--main-text);
+            margin-top: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* ハイライトボックス（ストライプ枠） */
         .highlight-box {
-            background-color: #f0fff0;
-            border: 3px solid var(--main-navy);
-            padding: 25px;
-            border-radius: 15px;
+            padding: 6px;
+            background-image: var(--stripe-pattern);
+            border-radius: 25px;
             margin: 40px 0;
+        }
+        .highlight-box-inner {
+            background-color: #f1f8e9; /* 非常に薄い緑の背景 */
+            padding: 30px;
+            border-radius: 19px;
+            color: var(--main-text);
+        }
+
+        .shinpuku-flex {
+            display: flex; 
+            align-items: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
         }
 
         .faculty-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-top: 25px;
         }
 
         .faculty-card {
             border: 1px solid #eee;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 15px;
             background-color: #fafafa;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
         }
+        /* カード上部にストライプの帯 */
+        .faculty-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: var(--stripe-pattern);
+        }
+        .faculty-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        .faculty-name { font-weight: 900; color: var(--main-navy); font-size: 1.2em; }
-        .faculty-role { font-size: 0.9em; color: #555; border-bottom: 2px solid var(--main-navy); margin-bottom: 10px; padding-bottom: 3px; }
+        .faculty-name { font-weight: 900; color: var(--main-accent); font-size: 1.25em; margin-top: 10px; }
+        .faculty-role { 
+            font-size: 0.95em; 
+            color: #555; 
+            font-weight: 700;
+            border-bottom: 2px dotted var(--col-blue); 
+            margin-bottom: 10px; 
+            padding-bottom: 5px; 
+        }
+        .faculty-card p {
+            font-size: 0.95em;
+            color: var(--main-text);
+            font-weight: 500;
+        }
         
+        /* 3色ボタン（落ち着いたグラデーション） */
         .btn-link-main {
             display: inline-block;
             margin: 10px 5px;
-            background-color: var(--main-navy);
-            color: var(--white);
+            /* グリーン～クリーム～ブルーのグラデーション */
+            background: linear-gradient(to right, var(--col-green), var(--col-cream), var(--col-blue));
+            color: #222; /* 明るい背景なので文字は濃く */
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
             font-size: 1em;
-            font-weight: 900;
-            transition: opacity 0.3s;
+            font-weight: 800;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 0 var(--main-accent);
+            border: 2px solid var(--white);
+        }
+        .btn-link-main:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--main-accent);
         }
 
         .btn-faculty-detail {
             display: block;
-            background-color: var(--main-navy);
-            color: var(--white);
+            background-color: #e0f2f1;
+            color: var(--main-accent);
             text-decoration: none;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 0.9em;
             text-align: center;
-            font-weight: 900;
+            font-weight: 800;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+        .btn-faculty-detail:hover {
+            background-color: var(--col-green);
+            color: var(--white);
         }
 
-        /* テーブル調整（8月追加に伴うレスポシブ対応） */
-        .table-container { width: 100%; margin-top: 20px; overflow-x: auto; }
+        .table-container { 
+            width: 100%; 
+            margin-top: 20px; 
+            overflow-x: auto; 
+            border-radius: 15px; 
+            border: 4px solid; 
+            border-image: var(--stripe-pattern) 1; 
+        }
         table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
-        th, td { border: 1px solid #ccc; padding: 12px 10px; text-align: left; }
-        th { background: #f4f4f4; color: var(--main-navy); white-space: nowrap; }
+        th, td { border: 1px solid #c8e6c9; padding: 15px; text-align: left; }
+        th { background: #e8f5e9; color: var(--main-accent); white-space: nowrap; font-weight: 800; }
+        tr:nth-child(even) { background-color: #f1f8e9; }
 
+        /* Zoomエリア */
         .zoom-area {
             text-align: center;
             margin: 60px 0;
-            padding: 40px 20px;
-            background: #f9f9f9;
-            border: 3px solid var(--main-navy);
-            border-radius: 15px;
+            padding: 8px;
+            background-image: var(--stripe-pattern);
+            border-radius: 35px;
+        }
+        .zoom-area-inner {
+            background: #fff3e0; /* ほんのり温かみのある背景 */
+            padding: 40px 30px;
+            border-radius: 27px;
         }
 
+        /* Zoomボタン（3色） */
         .btn-zoom {
             display: inline-block;
-            background-color: var(--main-navy);
-            color: var(--white);
-            padding: 15px 40px;
+            background: linear-gradient(to right, var(--col-blue), var(--col-cream), var(--col-green));
+            color: #222;
+            padding: 18px 50px;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
+            border-radius: 50px;
+            font-size: 1.3em;
             font-weight: 900;
+            box-shadow: 0 6px 0 var(--main-accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 3px solid var(--white);
+        }
+        .btn-zoom:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 var(--main-accent);
         }
 
-        /* フッター */
         footer {
-            background-color: #222;
+            background-color: var(--main-accent);
             color: var(--white);
             padding: 60px 20px;
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.9em;
+            margin-top: 60px;
         }
-        footer strong { color: var(--accent-gold); font-size: 1.2em; }
-        footer a { color: var(--accent-gold); text-decoration: none; }
+        footer strong { color: var(--col-cream); font-size: 1.2em; }
+        footer a { color: var(--col-cream); text-decoration: none; border-bottom: 1px dotted var(--col-cream); }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.6em; }
             nav { padding: 10px; justify-content: center; }
-            nav a { margin: 5px; font-size: 0.75em; }
+            nav a { margin: 5px; font-size: 0.8em; }
             .shinpuku-flex { flex-direction: column; text-align: center; }
             .shinpuku-img { margin-right: 0 !important; margin-bottom: 15px; }
-            table { font-size: 0.85em; }
-            th, td { padding: 8px 5px; }
+            .slideshow-container { max-width: 100%; height: auto; }
+            .slide-img { height: 250px; }
         }
     </style>
 </head>
@@ -223,119 +419,167 @@
 </header>
 
 <div class="container">
-    <div class="img-center-wrap">
-        <img src="student.jpg" alt="学生イメージ" class="content-img img-student">
-        <span class="img-caption">心理・福祉を学ぶ心優しい学生をイメージしています。</span>
+    <div class="container-inner">
+        
+        <div class="img-center-wrap">
+            <img src="student.jpg" alt="学生イメージ" class="content-img img-student">
+            <span class="img-caption">心理・福祉を学ぶ心優しい学生をイメージしています。</span>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slideshow-inner">
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-52-51-329.jpg" class="slide-img" alt="学生の様子1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-40-49-796.jpg" class="slide-img slide-img-contain" alt="学生の様子2">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-54-32-823.jpg" class="slide-img" alt="学生の様子3">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-43-30-834.jpg" class="slide-img slide-img-contain" alt="学生の様子4">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-52-00-239.jpg" class="slide-img" alt="学生の様子5">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-51-42-112.jpg" class="slide-img" alt="学生の様子6">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-46-04-754.jpg" class="slide-img" alt="学生の様子7">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-53-44-928.jpg" class="slide-img" alt="学生の様子8">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-47-59-213.jpg" class="slide-img" alt="学生の様子9">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-43-08-919.jpg" class="slide-img slide-img-contain" alt="学生の様子10">
+                </div>
+                <div class="mySlides fade">
+                    <img src="bandicam 2026-02-01 16-42-27-117.jpg" class="slide-img slide-img-contain" alt="学生の様子11">
+                </div>
+            </div>
+            <span class="img-caption">学科の日常風景</span>
+        </div>
+
+        <section class="highlight-box">
+            <div class="highlight-box-inner">
+                <div class="shinpuku-flex">
+                    <img src="shinpuku.jpg" alt="しんぷくちゃん" class="shinpuku-img" style="max-width: 120px; border-radius: 10px; margin-right: 30px;">
+                    <div>
+                        <h3 style="margin-top:0; color:var(--main-accent); font-size: 1.5em;">しんぷくちゃん</h3>
+                        <p>心理の「しん」と福祉の「ぷく」が名前の由来。おもちの妖精で、好きな言葉は「ありがとう」と「感謝」。学生さんと共に日々成長中です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy">
+            <h2>理念</h2>
+            <p>大阪大谷大学 心理・福祉学科は、生涯にわたって心身および社会的な健康を「人と社会」「心理と福祉」の立場から探求することを目的に創設されました。心理学と社会福祉学を融合させた教育体制を有し、「心に寄り添える福祉のプロになる」「社会の仕組みを知る心理のスペシャリストになる」「ひとがひとらしく生きる」ことを支える専門家を育成します。</p>
+        </section>
+
+        <section id="purpose">
+            <h2>ポータルサイト設立の主旨</h2>
+            <div class="highlight-box">
+                <div class="highlight-box-inner">
+                    <p>本学科は2024年に創設されました。大学公式ホームページでは発信できる情報量に限りがあるため、学科の「リアル」をより深くお伝えするために本ポータルサイトを運営しています。</p>
+                    <p>教員の想いが詰まった寄稿文や、ゼミの活動風景、学生が主体となって制作した資料など、貴重な情報を積極的に公開しています。</p>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="contribution.html" class="btn-link-main">教員の特別寄稿を読む →</a>
+                        <a href="student-voices.html" class="btn-link-main">先輩からの手紙を読む →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning">
+            <h2>進路と資格</h2>
+            <p>1年次に基礎を広く学び、2年次からコースを選択。公認心理師（基礎）と社会福祉士のダブル受験資格を目指せる稀少なカリキュラムが特色です。</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="career.html" class="btn-link-main">進路の詳細はこちら →</a>
+                <a href="license.html" class="btn-link-main">資格の詳細はこちら →</a>
+            </div>
+        </section>
+
+        <section id="faculty">
+            <h2>ゼミ紹介（11名全員が対人支援の専門家）</h2>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div><span class="faculty-name">秦 康宏 教授</span><span class="faculty-role">学科長 / 社会福祉学</span><p>現場経験22年の実務家教員。キャリアを全力で支えます。</p></div>
+                    <a href="faculty-hata.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">安田 傑 教授</span><span class="faculty-role">学科長補佐 / キャリア心理学</span><p>「自分らしいキャリア」を心理学からサポートします。</p></div>
+                    <a href="faculty-yasuda.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">田沢 晶子 教授</span><span class="faculty-role">臨床心理学・学生相談</span><p>アクティブな一面と、熱心な卒論指導を併せ持つ先生です。</p></div>
+                    <a href="faculty-tazawa.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">船本 淑恵 教授</span><span class="faculty-role">社会福祉学・障害者福祉</span><p>笑顔で包み込みながら、冷静なデータ分析を教えてくださいます。</p></div>
+                    <a href="faculty-funamoto.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">上西 裕之 准教授</span><span class="faculty-role">臨床心理学・学生相談</span><p>温かさと、圧倒的な研究実績を誇る研究者肌の先生です。</p></div>
+                    <a href="faculty-uenishi.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">小西 宏幸 教授</span><span class="faculty-role">パーソナリティ心理学</span><p>臨床の第一人者であり、学生への情熱溢れる先生です。</p></div>
+                    <a href="faculty-konishi-h.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">植木 是 准教授</span><span class="faculty-role">スクールソーシャルワーク</span><p>「なお」先生と呼んでください！真っ直ぐ子どもと向き合います。</p></div>
+                    <a href="faculty-ueki.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">谷 俊英 准教授</span><span class="faculty-role">子ども家庭福祉</span><p>児童養護施設現場での知名度と信頼は絶大。卒業後も皆さんをサポートしてくださるかも。</p></div>
+                    <a href="faculty-tani.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">河﨑 俊博 専任講師</span><span class="faculty-role">臨床心理学</span><p>「一人の人間としてどう在るか」を共に考えていきます。</p></div>
+                    <a href="faculty-kawasaki.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+                <div class="faculty-card">
+                    <div><span class="faculty-name">宮谷 祐史 講師</span><span class="faculty-role">障害心理・教育心理</span><p>誰もが学びやすく過ごしやすい共生社会の未来を一緒に考えていきましょう。 公認心理師・手話通訳士。 </p></div>
+                    <a href="faculty-miyatani.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="opencampus">
+            <h2>オープンキャンパス日程</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>日程</th><th>内容</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="color: #d32f2f; font-weight: 900;">2026年 3/28(土)</td><td><strong>ミニオープンキャンパス</strong></td></tr>
+                        <tr><td>4/25(土), 5/24(日)</td><td>志望校スタートOC</td></tr>
+                        <tr><td>6/21(日)</td><td>大学まるごと体験フェア</td></tr>
+                        <tr><td>7/4(土), 7/18(土), 7/19(日)</td><td>志望校決定・懇談ど真ん中！OC</td></tr>
+                        <tr><td style="color: #d32f2f;">8/7(金), 8/8(土)</td><td><strong>進路決定OC</strong></td></tr>
+                        <tr><td style="font-weight: 900;">9/6(日)</td><td><strong>出願本番サポートデー</strong></td></tr>
+                        <tr><td>10/12(月・祝)</td><td>高2スタートUP OC</td></tr>
+                        <tr><td style="color: #1976d2; font-weight: 900;">2027年 2/27(土), 3/27(土)</td><td>春の進路準備OC</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="zoom" class="zoom-area">
+            <div class="zoom-area-inner">
+                <h2>💻 オンラインZoom個別相談</h2>
+                <p>遠方のためオープンキャンパスに来れない方や高校の進路指導の先生方（出張模擬授業のご依頼），保護者様に専門教員が丁寧にお話をお伺いします。</p>
+                <a href="https://forms.office.com/r/EKquhYDC0S?origin=lprLink" class="btn-zoom" target="_blank">相談を申し込む</a>
+            </div>
+        </section>
     </div>
-
-    <section class="highlight-box">
-        <div class="shinpuku-flex" style="display: flex; align-items: center;">
-            <img src="shinpuku.jpg" alt="しんぷくちゃん" class="shinpuku-img" style="max-width: 120px; border-radius: 10px; margin-right: 30px;">
-            <div>
-                <h3 style="margin-top:0; color:var(--main-navy); font-size: 1.5em;">しんぷくちゃん</h3>
-                <p>心理の「しん」と福祉の「ぷく」が名前の由来。おもちの妖精で、好きな言葉は「ありがとう」と「感謝」。学生さんと共に日々成長中です。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="philosophy">
-        <h2>理念</h2>
-        <p>大阪大谷大学 心理・福祉学科は、生涯にわたって心身および社会的な健康を「人と社会」「心理と福祉」の立場から探求することを目的に創設されました。心理学と社会福祉学を融合させた教育体制を有し、「心に寄り添える福祉のプロになる」「社会の仕組みを知る心理のスペシャリストになる」「ひとがひとらしく生きる」ことを支える専門家を育成します。</p>
-    </section>
-
-    <section id="purpose">
-        <h2>ポータルサイト設立の主旨</h2>
-        <div class="highlight-box" style="background-color: #f9fdf9; border: 3px solid #c8e6c9;">
-            <p>本学科は2024年に創設されました。大学公式ホームページでは発信できる情報量に限りがあるため、学科の「リアル」をより深くお伝えするために本ポータルサイトを運営しています。</p>
-            <p>教員の想いが詰まった寄稿文や、ゼミの活動風景、学生が主体となって制作した資料など、貴重な情報を積極的に公開しています。</p>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="contribution.html" class="btn-link-main">教員の特別寄稿を読む →</a>
-                <a href="student-voices.html" class="btn-link-main">先輩からの手紙を読む →</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="learning">
-        <h2>進路と資格</h2>
-        <p>1年次に基礎を広く学び、2年次からコースを選択。公認心理師（基礎）と社会福祉士のダブル受験資格を目指せる稀少なカリキュラムが特色です。</p>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="career.html" class="btn-link-main">進路の詳細はこちら →</a>
-            <a href="license.html" class="btn-link-main">資格の詳細はこちら →</a>
-        </div>
-    </section>
-
-    <section id="faculty">
-        <h2>ゼミ紹介（11名全員が対人支援の専門家）</h2>
-        <div class="faculty-grid">
-            <div class="faculty-card">
-                <div><span class="faculty-name">秦 康宏 教授</span><span class="faculty-role">学科長 / 社会福祉学</span><p style="font-size: 0.9em;">現場経験22年の実務家教員。キャリアを全力で支えます。</p></div>
-                <a href="faculty-hata.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">安田 傑 教授</span><span class="faculty-role">学科長補佐 / キャリア心理学</span><p style="font-size: 0.9em;">「自分らしいキャリア」を心理学からサポートします。</p></div>
-                <a href="faculty-yasuda.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">田沢 晶子 教授</span><span class="faculty-role">臨床心理学・学生相談</span><p style="font-size: 0.9em;">アクティブな一面と、熱心な卒論指導を併せ持つ先生です。</p></div>
-                <a href="faculty-tazawa.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">船本 淑恵 教授</span><span class="faculty-role">社会福祉学・障害者福祉</span><p style="font-size: 0.9em;">笑顔で包み込みながら、冷静なデータ分析を教えてくださいます。</p></div>
-                <a href="faculty-funamoto.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">上西 裕之 准教授</span><span class="faculty-role">臨床心理学・学生相談</span><p style="font-size: 0.9em;">温かさと、圧倒的な研究実績を誇る研究者肌の先生です。</p></div>
-                <a href="faculty-uenishi.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">小西 宏幸 教授</span><span class="faculty-role">パーソナリティ心理学</span><p style="font-size: 0.9em;">臨床の第一人者であり、学生への情熱溢れる先生です。</p></div>
-                <a href="faculty-konishi-h.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">植木 是 准教授</span><span class="faculty-role">スクールソーシャルワーク</span><p style="font-size: 0.9em;">「なお」先生と呼んでください！真っ直ぐ子どもと向き合います。</p></div>
-                <a href="faculty-ueki.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">谷 俊英 准教授</span><span class="faculty-role">子ども家庭福祉</span><p style="font-size: 0.9em;">児童養護施設現場での知名度と信頼は絶大。卒業後も皆さんをサポートしてくださるかも。</p></div>
-                <a href="faculty-tani.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">河﨑 俊博 専任講師</span><span class="faculty-role">臨床心理学</span><p style="font-size: 0.9em;">「一人の人間としてどう在るか」を共に考えていきます。</p></div>
-                <a href="faculty-kawasaki.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-            <div class="faculty-card">
-                <div><span class="faculty-name">宮谷 祐史 講師</span><span class="faculty-role">障害心理・教育心理</span><p style="font-size: 0.9em;">誰もが学びやすく過ごしやすい共生社会の未来を一緒に考えていきましょう。 公認心理師・手話通訳士。 </p></div>
-                <a href="faculty-miyatani.html" class="btn-faculty-detail">ゼミ詳細を見る →</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="opencampus">
-        <h2>オープンキャンパス日程</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr><th>日程</th><th>内容</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td style="color: #d32f2f; font-weight: 900;">2026年 3/28(土)</td><td><strong>ミニオープンキャンパス</strong></td></tr>
-                    <tr><td>4/25(土), 5/24(日)</td><td>志望校スタートOC</td></tr>
-                    <tr><td>6/21(日)</td><td>大学まるごと体験フェア</td></tr>
-                    <tr><td>7/4(土), 7/18(土), 7/19(日)</td><td>志望校決定・懇談ど真ん中！OC</td></tr>
-                    <tr><td style="color: #d32f2f;">8/7(金), 8/8(土)</td><td><strong>進路決定OC</strong></td></tr>
-                    <tr><td style="font-weight: 900;">9/6(日)</td><td><strong>出願本番サポートデー</strong></td></tr>
-                    <tr><td>10/12(月・祝)</td><td>高2スタートUP OC</td></tr>
-                    <tr><td style="color: #1976d2; font-weight: 900;">2027年 2/27(土), 3/27(土)</td><td>春の進路準備OC</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="zoom" class="zoom-area">
-        <h2>💻 オンラインZoom個別相談</h2>
-        <p>遠方のためオープンキャンパスに来れない方や高校の進路指導の先生方（出張模擬授業のご依頼），保護者様に専門教員が丁寧にお話をお伺いします。</p>
-        <a href="https://forms.office.com/r/EKquhYDC0S?origin=lprLink" class="btn-zoom" target="_blank">相談を申し込む</a>
-    </section>
 </div>
 
 <footer>
@@ -349,6 +593,23 @@
         <p style="font-size:0.75em; margin-top:25px; opacity:0.6;">&copy; 2026 Osaka Ohtani University Dept. of Psychology and Social Welfare.</p>
     </div>
 </footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); 
+    }
+</script>
 
 </body>
 </html>

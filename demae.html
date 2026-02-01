@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出前授業一覧｜大阪大谷大学 心理・福祉学科</title>
+    <style>
+        :root {
+            /* ベースカラー */
+            --bg-color: #eaffea;
+            
+            /* 配色 */
+            --col-green: #66bb6a;       /* 穏やかなリーフグリーン */
+            --col-cream: #fff59d;       /* 優しいクリームイエロー */
+            --col-blue: #80cbc4;        /* 知的なミストブルー */
+            
+            /* 文字色・アクセント */
+            --main-text: #1a1a1a;       /* 濃い黒 */
+            --main-accent: #2e7d32;     /* 引き締め用の濃い緑 */
+            --white: #ffffff;
+            
+            /* ストライプパターン */
+            --stripe-pattern: repeating-linear-gradient(
+                45deg,
+                var(--col-green),
+                var(--col-green) 10px,
+                var(--col-cream) 10px,
+                var(--col-cream) 20px,
+                var(--col-blue) 20px,
+                var(--col-blue) 30px
+            );
+
+            /* デザイン要素 */
+            --shadow-soft: 0 5px 15px rgba(46, 125, 50, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--main-text);
+            font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", "Meiryo", sans-serif;
+            font-weight: 500; 
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* ナビゲーション（戻るボタン付き） */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 5px solid transparent;
+            border-image: var(--stripe-pattern) 1 stretch;
+        }
+
+        nav a {
+            color: var(--main-accent);
+            text-decoration: none;
+            margin: 5px 15px;
+            font-size: 0.95em;
+            font-weight: 800;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--col-green); }
+
+        .btn-back {
+            background-color: var(--main-accent);
+            color: var(--white) !important;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-right: auto; /* 左寄せ */
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #81c784);
+            color: var(--white);
+            padding: 140px 20px 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50% 30px;
+            border-bottom-right-radius: 50% 30px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            letter-spacing: 0.1em;
+            font-weight: 900;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .header-sub {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: var(--col-cream);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 40px auto;
+            padding: 10px; /* ストライプ枠用 */
+            background-image: var(--stripe-pattern);
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            z-index: 10;
+        }
+
+        .container-inner {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        h2 {
+            color: var(--main-accent);
+            border-bottom: 4px solid;
+            border-image: var(--stripe-pattern) 1 stretch;
+            padding: 10px 0;
+            margin: 40px 0 30px 0;
+            font-size: 1.8em;
+            text-align: center;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '●';
+            color: var(--col-green);
+            font-size: 0.8em;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 10px;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.05em;
+        }
+
+        /* 授業カード（元のfaculty-cardをベースに調整） */
+        .lecture-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .lecture-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            background-color: #fafafa;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .lecture-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* カード上部のストライプ帯 */
+        .lecture-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: var(--stripe-pattern);
+        }
+
+        .lecture-header {
+            padding: 25px 25px 15px 25px;
+            background-color: #fff;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .course-tag {
+            display: inline-block;
+            font-size: 0.85em;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .tag-psy { background-color: #e3f2fd; color: #1565c0; } /* 心理コース色 */
+        .tag-wel { background-color: #e8f5e9; color: #2e7d32; } /* 福祉コース色 */
+
+        .lecture-title {
+            font-size: 1.4em;
+            font-weight: 900;
+            color: var(--main-accent);
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .teacher-name {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #555;
+            text-align: right;
+        }
+
+        .lecture-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .info-row {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-weight: 800;
+            color: var(--col-green);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+        
+        .info-label::before {
+            content: '■';
+            margin-right: 5px;
+            font-size: 0.8em;
+        }
+
+        .message-box {
+            background-color: #fffde7; /* 薄いクリーム色 */
+            border: 2px solid var(--col-cream);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .message-box::after {
+            content: 'Message';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #fffde7;
+            padding: 0 5px;
+            font-size: 0.8em;
+            font-weight: 800;
+            color: #fbc02d;
+        }
+
+        footer {
+            background-color: var(--main-accent);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            nav { justify-content: space-between; padding: 10px 20px; }
+            .btn-back { margin-right: 0; font-size: 0.8em; }
+            header h1 { font-size: 1.6em; }
+            .lecture-title { font-size: 1.2em; }
+            .container-inner { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="btn-back">← 学科トップへ戻る</a>
+    <div style="font-weight: bold; color: var(--main-accent);">Osaka Ohtani Univ.</div>
+</nav>
+
+<header>
+    <h1>出前授業プログラム一覧</h1>
+    <div class="header-sub">高校生の「知りたい」に応える、<br>心理と福祉の多彩な学び</div>
+</header>
+
+<div class="container">
+    <div class="container-inner">
+        
+        <div class="intro-text">
+            <p>大阪大谷大学 人間社会学部 心理・福祉学科では、高校生の皆様に大学での学びの面白さを直接お伝えする「出前授業」を行っています。<br>心理学や社会福祉学の視点から、自己理解、コミュニケーション、恋愛、子育て、国際福祉など、幅広いテーマをご用意しています。</p>
+        </div>
+
+        <h2>心理コース</h2>
+
+        <div class="lecture-list">
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-psy">心理コース</span>
+                    <div class="lecture-title">恋する心</div>
+                    <div class="teacher-name">上西 裕之 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：臨床心理学）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>恋愛に関する心理学についてお話します。これまでの研究や映像資料などを踏まえながら、「異性に好かれる性格は」「告白するのはいつがいい」「何度も会いたくなるのはなぜ」「スタイルがいいほうがいいの」「失恋したとき心が痛くなるのはなぜ」など恋愛に関する心理学や脳科学のお話をします。</p>
+                    </div>
+                    <div class="message-box">
+                        恋愛をすることは自然な心の動きですが、それを研究していくとさまざまな科学的な心の性質が見えてきます。この講義では、そのような恋愛に関する研究を紹介しながら人間が恋愛をすることの意味ついてご紹介したいと思います。
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-psy">心理コース</span>
+                    <div class="lecture-title">わたしってどんな人？</div>
+                    <div class="teacher-name">河﨑 俊博 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：臨床心理学）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>はじめに簡単なレクチャーを行ってから、演習形式（個人ワークやグループワーク、発表）で進めていきます。わたしはどんな人間か？そもそも「わたし」とは何なのか？いくつかのワークシートを用いて、自分について理解を深めていきます。</p>
+                    </div>
+                    <div class="message-box">
+                        臨床心理学では、「自分を理解した深さまでしか、他者を理解することができない」と言われるほど、自己理解が大切にされています。ただ、自分のすべてがわかる、というものでもありません。知らなかった自分を発見し驚くかもしれませんし、「あ～、やっぱり！」と納得することもあるかもしれません。参加者同士で話しているうちに、「自分」が変化していることもあるでしょう。みなさんと一緒に自分を知る楽しみを味わいたいと思っております。
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-psy">心理コース</span>
+                    <div class="lecture-title">「シンリガク」は大学でしか学べない ⁉ ～ウソ、ホント～</div>
+                    <div class="teacher-name">田沢 晶子 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：臨床心理学）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>「シンリガク」は心を探求する学問。本格的には大学で学びますが、高校の授業の中に、私たちの普段の生活の中に「シンリガク」は潜んでいます。私たちの身近にある「シンリガク」を探しだしましょう。そして、大学での学びに繋げて行きましょう。</p>
+                    </div>
+                    <div class="message-box">
+                        高校の授業、公民科やそのほかの教科の中で、「シンリガク」に関わる内容を学ぶことができます。各教科で学ぶ内容が、どんな風にココロと関わっているのか、大学での学びにどのように接続していくのかを一緒に探してみましょう。そして、簡単な心理テストから、自分の特徴を知り、個性や性格、人間の多様性について理解を深めていきましょう！
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-psy">心理コース</span>
+                    <div class="lecture-title">“障害”はどこからくるか？わたしたちにできることって？</div>
+                    <div class="teacher-name">宮谷 祐史 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：障害心理、教育心理学）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>私たちの身の回りには、さまざまな「障害」を持つ人がいます。しかし、「障害」とは一体何なのでしょうか？ そして、私たちはどうすればお互いに理解し合い、支え合うことができるのでしょうか？この授業では、「障害心理」という視点から、障害を持つ人の感じ方や考え方、そして社会との関わりについて学んでいきます。</p>
+                    </div>
+                    <div class="message-box">
+                        心理学が対象にしているものは実に幅広いです。わたしは「障害」というものを心理学でみていきます。「障害」という言葉を聞いたことない人はほとんどいないと思います。でも「障害」って説明することはどうでしょう？高校では学べない学問が大学にはたくさんあります。
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-psy">心理コース</span>
+                    <div class="lecture-title">心理学を学ぶと、どんな将来が描ける？</div>
+                    <div class="teacher-name">安田 傑 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：キャリア心理学・教育心理学）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>心理学と聞くと、どんなイメージを持ちますか？まずはグループワークを通して、心理学に対するイメージを共有し、その後、実際の心理学実験を体験してもらいます。こうした活動を通じて、私たちが認識している世界と現実の世界のズレを実感してもらうことが目的です。さらに、自分が「目指そうと思い込んでいる将来像」と「本当は目指したい将来像」の違いについて、キャリア心理学の視点から考えていきます。</p>
+                    </div>
+                    <div class="message-box">
+                        大学に進学するまで、心について専門的に学ぶ機会はほとんどありません。しかし、自分を理解し、より良い未来を描くためには、心の仕組みを知ることがとても大切です。心理学を学ぶことで、自分でも気づいていない本心を探り、自分自身をより深く理解できるようになります。また、自分だけでなく、他者と幸せに生きるためのヒントも得られます。心理学を通して、新しい視点を手に入れてみませんか？
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>社会福祉コース</h2>
+
+        <div class="lecture-list">
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-wel">社会福祉コース</span>
+                    <div class="lecture-title">「人間らしく生きる」ことと、それを支援する活動</div>
+                    <div class="teacher-name">植木 是 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：社会福祉学、相談援助臨床 他）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>演習形式（アクティブラーニング形式）にて実施します。<br>
+                        ①演習「私たち（人間）が生きる」に必要なものとは？<br>
+                        ②演習「自己理解・他者理解～自分と他人の価値観の違い」／脱出ゲーム ほか</p>
+                    </div>
+                    <div class="message-box">
+                        ①「人間らしく生きる」ってどんなこと？素朴な疑問から出発しながら、それに必要とされる活動について考えます。そしてそれにかかわる実践的な学問分野である「社会福祉学」について、高校生のみなさんと一緒に考えてみます。<br>
+                        ②対人援助・相談援助の国家資格専門職「社会福祉士」（ソーシャルワーカー）とその諸活動、そしてそれらの社会への貢献可能性について、高校生のみなさんと一緒に学んでみたいと思います。
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-wel">社会福祉コース</span>
+                    <div class="lecture-title">福祉の観点から子育てを考えよう～褒めるを活かした子どもとのかかわり方～</div>
+                    <div class="teacher-name">谷 俊英 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：子ども家庭福祉、子育て支援 他）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>演習形式で授業を行います。子育ての現状について、皆で考えながら、現代の子育ての状況について理解を深めていきます。そして、現代の子育て現状を踏まえながら、福祉の観点を活かした子育て方法、具体的には、褒めるを中心とした子どもとのかかわり方についてロールプレイを交えながら学んでいきます。</p>
+                    </div>
+                    <div class="message-box">
+                        将来、家庭を持ち、子どもを育てると考える人は多いのではないでしょうか。その子育ての現状について福祉的な観点から考えたいと思います。また対人援助の専門職であるソーシャルワーカーの視点から、子ども（人）とのかかわり方について、どのようなかかわり方が良いのかを考え、そこから褒めることや認めることを中心としたかかわりの大切さを伝えたいと思います。
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-wel">社会福祉コース</span>
+                    <div class="lecture-title">世界から見える日本の社会福祉</div>
+                    <div class="teacher-name">秦 康宏 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：外国人介護人材支援、国際福祉 他）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>福祉先進国であるスウェーデンの絵文字やノーマライゼーションをご紹介します。また反対にカンボジアの障害者福祉や農村地域におけるこどもたちの生活を紹介します。わたしたちは何を知り、何を考える必要があるのでしょうか。一緒に考えましょう。</p>
+                    </div>
+                    <div class="message-box">
+                        社会福祉の目的は、その人が困っていることや望んでいることを自己実現できるように支援します。社会資源のコーディネートにより、課題を解決し、クライエントが、自分の人生に積極的に向き合っていける力を出せるように支援します。つまり、その人や家族、地域の人たちが自分らしい生き方、生き生きとした暮らしを見つけられるようにサポートし、一緒に伴奏（伴走）することかもしれませんね。<br>
+                        <small>※スケジュールについて：月曜午後、火曜午後、木曜午後が主に対応可能です。</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <span class="course-tag tag-wel">社会福祉コース</span>
+                    <div class="lecture-title">ユニバーサルデザインとコミュニケーション―伝わる／伝える言葉―</div>
+                    <div class="teacher-name">船本 淑恵 先生 <span style="font-size:0.8em; font-weight:normal;">（専門：社会福祉学、障害者福祉）</span></div>
+                </div>
+                <div class="lecture-body">
+                    <div class="info-row">
+                        <span class="info-label">授業内容</span>
+                        <p>演習形式を中心に授業を行います。「障害」状態で授業を受ける体験を通じて、伝わりやすい方法を考えていきます。そして、様々なコミュニケーション方法を紹介し、最後に伝える工夫に取り組んでもらいます。</p>
+                    </div>
+                    <div class="message-box">
+                        この社会で安心して生活していくためには、他者と交流を深め、孤立しない状態を作り出すことが不可欠です。そのためにコミュニケーションは必須条件となります。情報を保障するには、相手が受け取れる方法で提供しなければなりません。つまり、他者に伝えるためには相手を理解しようとする姿勢が重要となります。社会福祉を学ぶことによって、相手を尊重する姿勢を身につけていってほしいと考えています。
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div style="margin-bottom: 20px;">
+        <strong>大阪大谷大学 人間社会学部 心理・福祉学科</strong><br>
+        〒584-8540 大阪府富田林市錦織北3-11-1
+    </div>
+    <div>&copy; Osaka Ohtani University. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

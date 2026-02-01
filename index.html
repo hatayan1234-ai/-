@@ -396,6 +396,42 @@
             .slideshow-container { max-width: 100%; height: auto; }
             .slide-img { height: 250px; }
         }
+
+        /* 【追加】右上の出前講座ボタン用スタイル */
+        .btn-top-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff7043; /* 視認性の高いオレンジ */
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 900;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .btn-top-right:hover {
+            background: #e64a19;
+            transform: translateY(-50%) scale(1.05);
+        }
+        .btn-top-right::after { display: none; } /* 下線アニメーション無効化 */
+
+        /* スマホ等で画面が狭い場合 */
+        @media (max-width: 1100px) {
+            .btn-top-right {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin: 5px 15px;
+                display: inline-block;
+            }
+            .btn-top-right:hover {
+                transform: translateY(-2px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -411,6 +447,8 @@
     <a href="#zoom">相談申込</a>
     <a href="public-lecture.html" class="nav-lecture">公開講座2026</a>
     <a href="admission-ao.html">総合型選抜入試</a>
+    
+    <a href="demae.html" class="btn-top-right">出前講座</a>
 </nav>
 
 <header>

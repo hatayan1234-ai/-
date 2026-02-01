@@ -12,6 +12,7 @@
             --white: #ffffff;
             --text-dark: #111111;
             --sub-green: #4caf50;
+            --light-gray: #f9f9f9;
         }
 
         html { scroll-behavior: smooth; }
@@ -86,6 +87,15 @@
             font-size: 1.8em;
         }
 
+        h3.course-title {
+            background-color: var(--main-navy);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
         .highlight-box {
             background-color: #f0fff0;
             border: 3px solid var(--main-navy);
@@ -122,9 +132,10 @@
             transform: scale(1.05);
         }
 
+        /* 活躍のフィールド（アイコン） */
         .faculty-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
             margin-top: 25px;
         }
@@ -139,7 +150,49 @@
             justify-content: space-between;
         }
 
-        .faculty-name { font-weight: 900; color: var(--main-navy); font-size: 1.2em; }
+        .faculty-name { font-weight: 900; color: var(--main-navy); font-size: 1.1em; }
+
+        /* 実績セクション */
+        .results-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .result-box {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            background-color: var(--white);
+        }
+
+        .result-box h4 {
+            color: var(--sub-green);
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 5px;
+        }
+
+        .result-list {
+            padding-left: 20px;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+        
+        .result-list li {
+            margin-bottom: 5px;
+        }
+
+        .citation {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            line-height: 1.4;
+        }
 
         .img-center-wrap { text-align: center; margin: 30px 0; }
 
@@ -155,6 +208,7 @@
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.6em; }
+            .results-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -163,6 +217,7 @@
 <nav>
     <a href="index.html">トップへ戻る</a>
     <a href="#fields">活躍の場</a>
+    <a href="#results">実績</a>
     <a href="interview.html">卒業生の声</a>
     <a href="#support">就職支援</a>
 </nav>
@@ -199,31 +254,77 @@
         <div class="faculty-grid">
             <div class="faculty-card">
                 <div>
-                    <span class="faculty-name" style="font-size: 1.1em;">🛡️ 対人支援の専門職</span>
+                    <span class="faculty-name">🛡️ 対人支援の専門職</span>
                     <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">社会福祉士として高齢者・障がい者・児童施設、病院の相談員（MSW）などで活躍。 現場の実情を深く理解する専門職を目指します。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
-                    <span class="faculty-name" style="font-size: 1.1em;">🏛️ 公務員，行政の専門職</span>
+                    <span class="faculty-name">🏛️ 公務員，行政の専門職</span>
                     <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">児童養護施設の指導員や保健所の相談員など。 行政や学校の現場から、制度と心で人々を支えます。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
-                    <span class="faculty-name" style="font-size: 1.1em;">🧠 心理の専門家（大学院）</span>
+                    <span class="faculty-name">🧠 心理の専門家（大学院）</span>
                     <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">大学院へ進学し、公認心理師を目指します。より高度な心理的支援のプロフェッショナルへ進む道です。</p>
                 </div>
             </div>
             <div class="faculty-card">
                 <div>
-                    <span class="faculty-name" style="font-size: 1.1em;">💼 一般企業・ビジネス</span>
+                    <span class="faculty-name">💼 一般企業・ビジネス</span>
                     <p style="font-size: 0.95em; margin-top: 15px; line-height: 1.6;">「人の心を理解し、環境を整える調整力」は、あらゆるビジネスシーンで高く評価されます。</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="results">
+        <h2>主な就職・進学実績（最新）</h2>
+        <div class="results-section">
+            
+            <div class="result-box">
+                <h3 class="course-title">社会福祉コース</h3>
+                <p style="color: var(--main-navy); margin-bottom: 15px;">
+                    <strong>大阪の福祉専門職への好調な流れ</strong><br>
+                    <span style="font-size:0.9em;">（2023年度 4名・2024年度 4名実績）</span>
+                </p>
+                
+                <h4>主な就職先</h4>
+                <ul class="result-list">
+                    <li>（医）頌徳会</li>
+                    <li>（福）みおつくし福祉会</li>
+                    <li>（福）高津学園</li>
+                    <li>（福）東大阪市社会福祉協議会</li>
+                    <li>特別養護老人ホーム</li>
+                    <li>障害者支援施設 など</li>
+                </ul>
+
+                <div class="citation">
+                    [参考] 社会福祉コースのキャリア説明論文<br>（大阪大谷大学紀要59号）
+                </div>
+            </div>
+
+            <div class="result-box">
+                <h3 class="course-title">心理コース</h3>
+                
+                <h4>主な就職先</h4>
+                <ul class="result-list">
+                    <li>大阪府心理職</li>
+                    <li>（株）東洋テック</li>
+                    <li>（株）日本ピーマック</li>
+                    <li>（株）トヨタモビリティパーツ</li>
+                </ul>
+
+                <h4>主な進学先</h4>
+                <ul class="result-list">
+                    <li>国際医療福祉大学大学院</li>
+                    <li>大阪樟蔭女子大学大学院</li>
+                    <li>京都光華女子大学大学院</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <section id="support">
         <h2>夢を実現する強力なバックアップ体制</h2>
         <div class="highlight-box">

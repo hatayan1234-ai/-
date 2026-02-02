@@ -39,7 +39,6 @@
 
         body {
             background-color: var(--bg-color);
-            /* 背景にうっすらと方眼（グリッド）を入れてノートのような知的な雰囲気に */
             background-image: 
                 linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
@@ -48,7 +47,7 @@
             color: var(--main-text);
             font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", "Meiryo", sans-serif;
             font-weight: 500; 
-            font-size: 16px; /* 文字サイズを少し大きく確保 */
+            font-size: 16px; 
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -65,7 +64,6 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             flex-wrap: wrap;
-            /* 下線にストライプを使用 */
             border-bottom: 5px solid transparent;
             border-image: var(--stripe-pattern) 1 stretch;
         }
@@ -83,7 +81,6 @@
 
         nav a:hover { color: var(--col-green); }
 
-        /* ホバー時の下線アニメーション */
         nav a::after {
             content: '';
             position: absolute;
@@ -107,16 +104,13 @@
             transform: translate(1px, 1px);
             box-shadow: none;
         }
-        .nav-lecture::after { display: none; }
 
         header {
-            /* 落ち着いたグリーンのグラデーション */
             background: linear-gradient(135deg, #2e7d32, #81c784);
             color: var(--white);
             padding: 180px 20px 100px 20px;
             text-align: center;
             position: relative;
-            /* 緩やかなカーブで優しさを表現 */
             border-bottom-left-radius: 50% 30px;
             border-bottom-right-radius: 50% 30px;
         }
@@ -139,11 +133,10 @@
             text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
         }
 
-        /* メインコンテナ（ストライプ枠） */
         .container {
             max-width: 1000px;
             margin: -60px auto 40px auto;
-            padding: 10px; /* ストライプの太さ */
+            padding: 10px; 
             background-image: var(--stripe-pattern);
             border-radius: 30px;
             box-shadow: var(--shadow-soft);
@@ -156,12 +149,52 @@
             border-radius: 20px;
         }
 
+        /* 【新設】学生イメージ用のおしゃれなフレーム */
+        .image-frame-stylish {
+            max-width: 420px;
+            margin: 40px auto;
+            padding: 15px 15px 40px 15px; /* 下側を少し広くしてポラロイド風に */
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-1deg); /* わずかに傾けて手作り感を演出 */
+            border: 6px solid;
+            border-image: var(--stripe-pattern) 1;
+        }
+        .image-frame-stylish img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+        }
+        .image-frame-stylish::before {
+            content: '☘️';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .img-caption-stylish {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 800;
+            color: var(--main-accent);
+            font-size: 0.95em;
+            letter-spacing: 0.05em;
+        }
+
         h2 {
             color: var(--main-accent);
-            /* 下線にストライプを使用 */
             border-bottom: 4px solid;
             border-image: var(--stripe-pattern) 1 stretch;
-            border-left: none;
             padding: 10px 0;
             margin: 60px 0 30px 0;
             font-size: 1.8em;
@@ -170,7 +203,6 @@
             font-weight: 800;
         }
         
-        /* 見出しの装飾（ワンポイント） */
         h2::before {
             content: '●';
             color: var(--col-green);
@@ -183,48 +215,6 @@
             padding: 0 10px;
         }
 
-        .img-center-wrap { text-align: center; margin: 30px 0; }
-        .content-img { width: 100%; height: auto; border-radius: 15px; border: 4px solid var(--white); box-shadow: var(--shadow-soft); display: inline-block; }
-        .img-student { max-width: 350px; }
-        
-        /* --- スライドショー --- */
-        .slideshow-container {
-            max-width: 480px;
-            position: relative;
-            margin: 50px auto;
-            padding: 8px; /* ストライプ枠 */
-            background-image: var(--stripe-pattern);
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-        }
-        .slideshow-inner {
-            background: var(--white);
-            padding: 5px;
-            border-radius: 12px;
-        }
-        .mySlides { display: none; text-align: center; }
-        .slide-img {
-            width: 100%;
-            height: 320px;
-            border-radius: 8px;
-            object-fit: cover; 
-        }
-        /* 顔が見切れないようにするクラス */
-        .slide-img-contain { object-fit: contain !important; }
-
-        .fade { animation-name: fade; animation-duration: 1.5s; }
-        @keyframes fade { from {opacity: .4} to {opacity: 1} }
-
-        .img-caption {
-            display: block;
-            font-size: 0.95em;
-            color: var(--main-text);
-            margin-top: 15px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        /* ハイライトボックス（ストライプ枠） */
         .highlight-box {
             padding: 6px;
             background-image: var(--stripe-pattern);
@@ -232,7 +222,7 @@
             margin: 40px 0;
         }
         .highlight-box-inner {
-            background-color: #f1f8e9; /* 非常に薄い緑の背景 */
+            background-color: #f1f8e9; 
             padding: 30px;
             border-radius: 19px;
             color: var(--main-text);
@@ -266,7 +256,6 @@
             overflow: hidden;
             transition: transform 0.3s;
         }
-        /* カード上部にストライプの帯 */
         .faculty-card::before {
             content: '';
             position: absolute;
@@ -285,19 +274,12 @@
             margin-bottom: 10px; 
             padding-bottom: 5px; 
         }
-        .faculty-card p {
-            font-size: 0.95em;
-            color: var(--main-text);
-            font-weight: 500;
-        }
         
-        /* 3色ボタン（落ち着いたグラデーション） */
         .btn-link-main {
             display: inline-block;
             margin: 10px 5px;
-            /* グリーン～クリーム～ブルーのグラデーション */
             background: linear-gradient(to right, var(--col-green), var(--col-cream), var(--col-blue));
-            color: #222; /* 明るい背景なので文字は濃く */
+            color: #222; 
             text-decoration: none;
             padding: 15px 35px;
             border-radius: 50px;
@@ -343,7 +325,6 @@
         th { background: #e8f5e9; color: var(--main-accent); white-space: nowrap; font-weight: 800; }
         tr:nth-child(even) { background-color: #f1f8e9; }
 
-        /* Zoomエリア */
         .zoom-area {
             text-align: center;
             margin: 60px 0;
@@ -352,12 +333,11 @@
             border-radius: 35px;
         }
         .zoom-area-inner {
-            background: #fff3e0; /* ほんのり温かみのある背景 */
+            background: #fff3e0; 
             padding: 40px 30px;
             border-radius: 27px;
         }
 
-        /* Zoomボタン（3色） */
         .btn-zoom {
             display: inline-block;
             background: linear-gradient(to right, var(--col-blue), var(--col-cream), var(--col-green));
@@ -371,10 +351,6 @@
             transition: transform 0.2s, box-shadow 0.2s;
             border: 3px solid var(--white);
         }
-        .btn-zoom:hover {
-            transform: translateY(3px);
-            box-shadow: 0 3px 0 var(--main-accent);
-        }
 
         footer {
             background-color: var(--main-accent);
@@ -384,26 +360,14 @@
             font-size: 0.9em;
             margin-top: 60px;
         }
-        footer strong { color: var(--col-cream); font-size: 1.2em; }
         footer a { color: var(--col-cream); text-decoration: none; border-bottom: 1px dotted var(--col-cream); }
 
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.6em; }
-            nav { padding: 10px; justify-content: center; }
-            nav a { margin: 5px; font-size: 0.8em; }
-            .shinpuku-flex { flex-direction: column; text-align: center; }
-            .shinpuku-img { margin-right: 0 !important; margin-bottom: 15px; }
-            .slideshow-container { max-width: 100%; height: auto; }
-            .slide-img { height: 250px; }
-        }
-
-        /* 【追加】右上の出前講座ボタン用スタイル */
         .btn-top-right {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: #ff7043; /* 視認性の高いオレンジ */
+            background: #ff7043; 
             color: #fff !important;
             padding: 8px 20px;
             border-radius: 25px;
@@ -412,25 +376,14 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: all 0.3s;
         }
-        .btn-top-right:hover {
-            background: #e64a19;
-            transform: translateY(-50%) scale(1.05);
-        }
-        .btn-top-right::after { display: none; } /* 下線アニメーション無効化 */
 
-        /* スマホ等で画面が狭い場合 */
-        @media (max-width: 1100px) {
-            .btn-top-right {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                margin: 5px 15px;
-                display: inline-block;
-            }
-            .btn-top-right:hover {
-                transform: translateY(-2px);
-            }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6em; }
+            nav { padding: 10px; justify-content: center; }
+            nav a { margin: 5px; font-size: 0.8em; }
+            .shinpuku-flex { flex-direction: column; text-align: center; }
+            .shinpuku-img { margin-right: 0 !important; margin-bottom: 15px; }
+            .btn-top-right { position: relative; right: auto; top: auto; transform: none; margin: 10px; }
         }
     </style>
 </head>
@@ -459,48 +412,9 @@
 <div class="container">
     <div class="container-inner">
         
-        <div class="img-center-wrap">
-            <img src="student.jpg" alt="学生イメージ" class="content-img img-student">
-            <span class="img-caption">心理・福祉を学ぶ心優しい学生をイメージしています。</span>
-        </div>
-
-        <div class="slideshow-container">
-            <div class="slideshow-inner">
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-52-51-329.jpg" class="slide-img" alt="学生の様子1">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-40-49-796.jpg" class="slide-img slide-img-contain" alt="学生の様子2">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-54-32-823.jpg" class="slide-img" alt="学生の様子3">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-43-30-834.jpg" class="slide-img slide-img-contain" alt="学生の様子4">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-52-00-239.jpg" class="slide-img" alt="学生の様子5">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-51-42-112.jpg" class="slide-img" alt="学生の様子6">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-46-04-754.jpg" class="slide-img" alt="学生の様子7">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-53-44-928.jpg" class="slide-img" alt="学生の様子8">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-47-59-213.jpg" class="slide-img" alt="学生の様子9">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-43-08-919.jpg" class="slide-img slide-img-contain" alt="学生の様子10">
-                </div>
-                <div class="mySlides fade">
-                    <img src="bandicam 2026-02-01 16-42-27-117.jpg" class="slide-img slide-img-contain" alt="学生の様子11">
-                </div>
-            </div>
-            <span class="img-caption">学科の日常風景</span>
+        <div class="image-frame-stylish">
+            <img src="student.jpg" alt="学生イメージ">
+            <span class="img-caption-stylish">心理・福祉を学ぶ心優しい学生をイメージしています。</span>
         </div>
 
         <section class="highlight-box">
@@ -631,23 +545,6 @@
         <p style="font-size:0.75em; margin-top:25px; opacity:0.6;">&copy; 2026 Osaka Ohtani University Dept. of Psychology and Social Welfare.</p>
     </div>
 </footer>
-
-<script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 3000); 
-    }
-</script>
 
 </body>
 </html>

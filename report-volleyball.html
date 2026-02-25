@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大会レポート：児童養護施設のソフトバレーボール大会｜大阪大谷大学 心理・福祉学科</title>
+    <style>
+        :root {
+            /* ベースカラー */
+            --bg-color: #eaffea;
+            --col-green: #66bb6a;
+            --col-cream: #fff59d;
+            --col-blue: #80cbc4;
+            
+            /* 文字色・アクセント */
+            --main-text: #1a1a1a;
+            --main-accent: #2e7d32;
+            --white: #ffffff;
+            
+            /* ストライプパターン */
+            --stripe-pattern: repeating-linear-gradient(
+                45deg,
+                var(--col-green),
+                var(--col-green) 10px,
+                var(--col-cream) 10px,
+                var(--col-cream) 20px,
+                var(--col-blue) 20px,
+                var(--col-blue) 30px
+            );
+
+            /* デザイン要素 */
+            --shadow-soft: 0 5px 15px rgba(46, 125, 50, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--main-text);
+            font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", "Meiryo", sans-serif;
+            font-weight: 500; 
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* ナビゲーション（戻るボタン付き） */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 5px solid transparent;
+            border-image: var(--stripe-pattern) 1 stretch;
+        }
+
+        nav a {
+            color: var(--main-accent);
+            text-decoration: none;
+            margin: 5px 15px;
+            font-size: 0.95em;
+            font-weight: 800;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--col-green); }
+
+        .btn-back {
+            background-color: var(--main-accent);
+            color: var(--white) !important;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-right: auto; /* 左寄せ */
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #81c784);
+            color: var(--white);
+            padding: 140px 20px 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50% 30px;
+            border-bottom-right-radius: 50% 30px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin: 0;
+            letter-spacing: 0.1em;
+            font-weight: 900;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .header-sub {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: var(--col-cream);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 40px auto;
+            padding: 10px; /* ストライプ枠用 */
+            background-image: var(--stripe-pattern);
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            z-index: 10;
+        }
+
+        .container-inner {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        /* 記事用の見出しスタイル */
+        .article-title {
+            color: var(--main-accent);
+            font-size: 1.6em;
+            font-weight: 900;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed var(--col-green);
+            padding-bottom: 20px;
+        }
+
+        .article-subtitle {
+            display: block;
+            font-size: 0.75em;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .container-inner h2 {
+            color: var(--white);
+            background-color: var(--main-accent);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.3em;
+            margin: 50px 0 20px 0;
+            font-weight: 800;
+            box-shadow: 2px 2px 0 var(--col-cream);
+        }
+
+        .container-inner h3 {
+            color: var(--main-accent);
+            border-left: 5px solid var(--col-green);
+            padding-left: 15px;
+            font-size: 1.1em;
+            margin-top: 30px;
+        }
+
+        .container-inner p {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .highlight-text {
+            background: linear-gradient(transparent 60%, var(--col-cream) 60%);
+            font-weight: 800;
+        }
+
+        /* リストスタイル */
+        .custom-list {
+            background-color: #f1f8e9;
+            padding: 25px 25px 25px 45px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .custom-list li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .custom-list strong {
+            color: var(--main-accent);
+        }
+
+        /* ビフォーアフターのテーブル */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            min-width: 600px; /* スマホでスクロールできるように */
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #c8e6c9;
+            padding: 15px;
+        }
+        .comparison-table th {
+            background-color: var(--col-green);
+            color: var(--white);
+            font-weight: 800;
+            text-align: center;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f1f8e9;
+        }
+        .comparison-table td:first-child {
+            font-weight: 800;
+            color: var(--main-accent);
+            background-color: #e8f5e9;
+            text-align: center;
+            width: 20%;
+        }
+
+        footer {
+            background-color: var(--main-accent);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            nav { justify-content: space-between; padding: 10px 20px; }
+            .btn-back { margin-right: 0; font-size: 0.8em; }
+            header h1 { font-size: 1.6em; }
+            .container-inner { padding: 30px 20px; }
+            .article-title { font-size: 1.3em; }
+            .container-inner h2 { font-size: 1.1em; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="btn-back">← 学科トップへ戻る</a>
+    <div style="font-weight: bold; color: var(--main-accent);">Osaka Ohtani Univ.</div>
+</nav>
+
+<header>
+    <h1>イベントレポート</h1>
+    <div class="header-sub">現場の熱気から学ぶ、福祉のリアル</div>
+</header>
+
+<div class="container">
+    <div class="container-inner">
+        
+        <div class="article-title">
+            谷先生主催：児童養護施設の<br>ソフトバレーボール大会から学ぶ「社会的養護」の本当の意味
+            <span class="article-subtitle">〜体験がこれまでのイメージをガラッと変える瞬間〜</span>
+        </div>
+
+        <h2>1. はじめに：なぜ「スポーツ」が学びの場になるのか</h2>
+        <p>「社会的養護（さまざまな事情で親と離れて暮らす子どもたちを社会全体で育てること）」について学ぶとき、私たちはどうしても、法律の難しいルールや制度ばかりに気を取られてしまいがちです。でも、人間社会学部 心理・福祉学科の先生たちが大切にしているのは、<span class="highlight-text">頭で覚えただけの理論を、血の通った「実感」へと変えていくプロセス</span>です。</p>
+        
+        <p>毎年行われている谷先生主催の大会として、2026年2月8日、大阪大谷大学の第3体育館に、堺市や泉州地域の児童養護施設で暮らす子どもたちが集まり、「ソフトバレーボール大会」が開かれました。この毎年の恒例イベントは、ただのレクリエーションではありません。学生たちが「生の福祉」に触れ、教科書で学んだ知識を自分の中で組み立て直すための、とても大切な学びの場なのです。</p>
+
+        <p>大会では、学生たちがそれぞれの得意なことや立場を活かして、いろいろな役割を担当しました。</p>
+
+        <ul class="custom-list">
+            <li><strong>社会福祉コースの3年生：</strong><br>運営スタッフの中心として大会を支え、毎年恒例の「大会講評（大会の振り返りとメッセージ）」も担当しました。現場をしっかり観察する力が求められる大切な役割です。</li>
+            <li><strong>女子バレーボール部員：</strong><br>スポーツの専門家として、審判などを担当しました。福祉を専門に学んでいない学生にとっても、社会的養護の「本当の姿」に触れる貴重なチャンスになりました。</li>
+        </ul>
+
+        <p>このように様々な人が関わるのは、福祉の現場が、色々な職業の人や地域社会との協力で成り立っているということを教えてくれます。それでは、机の上の勉強では絶対に味わえない「現場の熱気」が、心理・福祉学科の学生たちの心をどう動かしたのか、詳しく見ていきましょう。</p>
+
+        <h2>2. 現場のダイナミズム：大雪を溶かす熱気と真剣勝負</h2>
+        <p>大会の日は、体育館の外では大雪が降るほどの厳しい寒さでした。しかし、体育館に一歩足を踏み入れると、外の寒さを完全に吹き飛ばしてしまうほどの熱気にあふれていたのです。</p>
+        <p>スポーツという「普段とは違う場所」で見せる子どもたちの姿は、将来、支援の仕事をめざす学生たちに、教科書以上にたくさんのことを教えてくれます。特に次の3つの場面は、福祉における「人との関係づくり」を考える上で、すごく大切な気づきをくれました。</p>
+
+        <h3>「対等なパートナー」としてボールを追う姿</h3>
+        <p>子どもたちと施設の職員さんが一緒に汗を流し、真剣な顔でボールを追いかける姿がありました。そこには「支援する側」と「支援される側」というような固定された上下関係はありません。施設という枠組みを超えた、人と人とのダイナミックな触れ合いがありました。</p>
+
+        <h3>感情を爆発させる「一喜一憂」の重み</h3>
+        <p>勝って大喜びし、負けて悔し涙を流す。そんな風にストレートに感情を出せるのは、子どもたちがこの場所を「安心できる場所」だと感じているからです。子どもたちにとって、大学や大会の運営メンバーが、ありのままの感情を出せる「安全な基地（セキュア・ベース）」になっている証拠であり、この交流がどれほど教育的に意味のあることかを証明しています。</p>
+
+        <h3>昨年を上回る大盛況が示す「みんなが求めていたもの」</h3>
+        <p>参加チームが昨年より増えたことは、コロナ禍を乗り越えて、こうした直接触れ合えるイベントが現場からどれほど強く求められていたかを物語っています。人と人との繋がりを取り戻すことこそが、今の子どもたちの福祉にとって一番急がなければならない課題だと、学生たちも肌で感じ取ったはずです。</p>
+        <p>こうした子どもたちの「ありのままの生き生きとした力」に触れて、学生たちが持っていた「社会的養護」へのイメージがどう変わっていったのか、さらに深く見ていきましょう。</p>
+
+        <h2>3. 深層理解：体験が「社会的養護」のイメージをどう変えるか</h2>
+        <p>福祉を学び始めたばかりの学生や、バレーボール部員のように別の分野を学んでいる学生は、「児童養護施設の子どもたち」に対して、世間のイメージからくる先入観を抱いてしまいがちです。でも、この大会でのふれあいは、そんな思い込みを根本からひっくり返すものになりました。</p>
+        <p>学生たちが最初持っていた「ビフォー」のイメージと、体験を通して知った「アフター」の本当の姿を比べてみましょう。</p>
+
+        <div class="table-responsive">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>注目するポイント</th>
+                        <th>最初になりがちな先入観（ビフォー）</th>
+                        <th>大会で知った本当の姿（アフター）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>子どもたちの様子</td>
+                        <td>「かわいそうな子」という、同情してしまうようなイメージ</td>
+                        <td>エネルギーと主体性にあふれ、目標に向かって突き進む<strong>「自ら動く力（エージェンシー）」</strong>を持った姿</td>
+                    </tr>
+                    <tr>
+                        <td>感情の表現</td>
+                        <td>複雑な環境のせいで心を閉ざし、感情をあまり表に出さないのではないか</td>
+                        <td>スポーツを通して喜びも悔しさも全身で表現する、<strong>感情豊かで元気な姿</strong></td>
+                    </tr>
+                    <tr>
+                        <td>社会との距離感</td>
+                        <td>施設という閉ざされた世界にいて、地域から孤立しているイメージ</td>
+                        <td>大学やスポーツを通じて社会と繋がり、新しい人間関係を切り開いていく<strong>開かれた存在</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>参加した学生、特に心理・福祉学科以外の学生からも「社会的養護に対する正しい理解につながった」という声が聞かれました。その一番のポイントは、子どもたちを「守ってあげなきゃいけない弱い人」としてではなく、<span class="highlight-text">「尊厳を持った一人の人間」として見つめ直せたこと</span>にあります。この「見方の大転換（パラダイムシフト）」こそが、将来の福祉の現場で「子どもにとって一番良いこと」を考えていくための、絶対に揺るがない土台になるのです。</p>
+        <p>そして、この学びの連鎖は、1回限りのイベントで終わるわけではありません。過去から未来へとつながっていく、大きなネットワークの一部なのです。</p>
+
+        <h2>4. 継続する絆：世代を超えてつながる福祉のネットワーク</h2>
+        <p>この大会のもう一つの素晴らしいところは、大学と福祉の現場が「お互いに学び合う」サイクルを作っている点です。</p>
+        <p>大会当日の運営には、昔この体育館で学び、今は児童養護施設の職員として最前線で働いている大学の卒業生たちがたくさん関わっていました。数年前までは「学生スタッフ」として子どもたちを迎えていた先輩が、今度は福祉のプロとして子どもたちを連れて母校に帰ってくるのです。この流れは、今の学生たちにとって、「将来の自分の姿」を想像させてくれる、具体的でとても力強いお手本（ロールモデル）になっています。</p>
+        <p>現場を知る卒業生が大学の教育に関わり、大学はそれを受け入れて次の世代を育てる。この「世代を超えた絆」が続いていくことこそが、福祉の質を高めるためのパワーの源です。現場のリアルな空気と、大学での学びが混ざり合うこの空間で、学生たちは自分がこれから進む道の素晴らしさを再確認したことでしょう。</p>
+
+        <h2>5. まとめ：明日からの学習に向けて</h2>
+        <p>この大会を通して得られた「社会的養護への理解」は、ただ頭で覚えただけの知識ではありません。子どもたちの笑顔と情熱によって書き換えられた、心に深く刻み込まれた「魂の記憶」です。外の大雪を溶かすほどの熱気の中で感じたあの感動を、ただの一過性の思い出で終わらせてはいけません。</p>
+        <p>現場で目の当たりにした「ありのままの姿」をスタート地点にして、なぜ社会的養護が必要なのか、そして子どもたちが持っている権利をどうやって守り抜いていくのか。その問いを、これからの授業やグループワーク、そして実習の場へと持ち帰ってください。</p>
+        <p>目の前の笑顔を支えるために、もっと深く学び、スキルを磨いていく。その絶え間ない努力こそが、福祉を目指す人の誠実さです。今回の体験を一生の宝物にして、子どもたちと一緒に歩んでいける未来の専門家へと成長していくことを、心から願っています。</p>
+
+    </div>
+</div>
+
+<footer>
+    <div style="margin-bottom: 20px;">
+        <strong>大阪大谷大学 人間社会学部 心理・福祉学科</strong><br>
+        〒584-8540 大阪府富田林市錦織北3-11-1
+    </div>
+    <div>&copy; Osaka Ohtani University. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

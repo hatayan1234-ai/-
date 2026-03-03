@@ -92,26 +92,23 @@
             border-radius: 0 10px 10px 0;
         }
 
-        h3 {
-            color: var(--main-navy);
-            font-size: 1.4em;
-            margin-top: 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        h3::before {
-            content: '★';
-            color: var(--accent-gold);
-            margin-right: 10px;
-        }
-
         .highlight-box {
             background-color: #fff9e6;
             border: 3px dashed var(--sub-blue);
             padding: 25px;
             border-radius: 15px;
             margin: 40px 0;
+        }
+
+        /* 画像をレスポンシブに対応させるための設定 */
+        .step-diagram {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .card-grid {
@@ -133,13 +130,6 @@
         .pop-card:hover { transform: translateY(-5px); }
 
         .icon-box { font-size: 2.5em; margin-bottom: 10px; }
-
-        .table-container { width: 100%; margin-top: 20px; overflow-x: auto; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0; border: 2px solid var(--main-navy); border-radius: 12px; overflow: hidden; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: var(--main-navy); color: var(--white); }
-        tr:last-child td { border-bottom: none; }
-        tr:nth-child(even) { background-color: #f9fbfd; }
 
         footer {
             background-color: #222;
@@ -208,6 +198,9 @@
             </p>
             <p>※国家試験の受験資格を得るには、大学で指定科目を履修・卒業後、大学院での修了または特定の施設での実務経験が必要です。</p>
         </div>
+
+        <img src="psyst.jpg" alt="公認心理師 受験資格取得のルート" class="step-diagram">
+        
     </section>
 
     <section id="career">

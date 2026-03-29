@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="1OZHzySQN2JeYluQzwGVf3QK3IGbIAySI9FA0tWOSEY" />
     <title>2026年度 総合型選抜入試｜大阪大谷大学 心理・福祉学科</title>
     <style>
         :root {
-            --bg-color: #fff9f0;
+            --bg-color: #eaffea; /* 薄緑色 */
             --main-navy: #002147;
             --accent-gold: #ffd700;
             --white: #ffffff;
             --text-dark: #111111;
-            --sub-orange: #ff9800;
-            --pop-orange-light: #fff3e0;
+            --sub-green: #4caf50; /* グリーン */
+            --pop-green-light: #f1f8e9; /* 薄緑の背景用 */
             --soft-blue: #e3f2fd;
         }
 
@@ -36,7 +37,7 @@
             display: flex;
             justify-content: flex-end;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12 rgba(0,0,0,0.2);
         }
 
         nav a {
@@ -81,8 +82,8 @@
 
         h2 {
             color: var(--main-navy);
-            border-left: 12px solid var(--sub-orange);
-            background: linear-gradient(to right, #fff3e0, transparent);
+            border-left: 12px solid var(--sub-green);
+            background: linear-gradient(to right, #f1f8e9, transparent);
             padding: 10px 20px;
             margin: 60px 0 30px 0;
             font-size: 1.8em;
@@ -91,15 +92,15 @@
 
         .em-title {
             font-size: 1.6em;
-            color: #d32f2f;
+            color: #2e7d32;
             display: block;
             margin-bottom: 10px;
             text-decoration: underline;
         }
 
         .highlight-box {
-            background-color: #fffde7;
-            border: 3px dashed var(--sub-orange);
+            background-color: #f9fff9;
+            border: 3px dashed var(--sub-green);
             padding: 25px;
             border-radius: 15px;
             margin: 40px 0;
@@ -114,21 +115,45 @@
             font-weight: 900;
         }
 
+        /* 選考フロー用スタイル */
+        .flow-container {
+            margin: 40px 0;
+        }
+        .flow-step {
+            background-color: #fafafa;
+            border: 1px solid #eee;
+            border-left: 8px solid var(--main-navy);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .flow-date {
+            display: inline-block;
+            background-color: var(--main-navy);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        .flow-step h4 { margin: 0 0 10px 0; color: var(--main-navy); }
+
         .recommend-card {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 4px solid var(--sub-orange);
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            border: 4px solid var(--sub-green);
             padding: 30px;
             border-radius: 20px;
             margin: 40px 0;
             position: relative;
         }
 
-        .pop-card {
-            background-color: var(--pop-orange-light);
-            border: 2px solid #ffe0b2;
-            padding: 25px;
+        .report-box {
+            background-color: #f9fff9;
+            border: 2px solid var(--sub-green);
+            padding: 20px;
             border-radius: 15px;
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
         .consultation-box {
@@ -137,6 +162,15 @@
             padding: 25px;
             border-radius: 15px;
             margin-top: 30px;
+        }
+
+        .admission-site-box {
+            background-color: #e8f5e9;
+            border: 2px solid var(--sub-green);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
         }
 
         .btn-apply {
@@ -148,6 +182,24 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 900;
+        }
+
+        .btn-official {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 15px 40px;
+            background-color: #2e7d32;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 900;
+            box-shadow: 0 4px 0 #1b5e20;
+            transition: all 0.2s;
+        }
+        .btn-official:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #1b5e20;
         }
 
         .thank-img-wrap {
@@ -178,6 +230,10 @@
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.6em; }
+            .container { padding: 20px; }
+            h2 { font-size: 1.5em; }
+            .shinpuku-flex { flex-direction: column; text-align: center; }
+            .shinpuku-img { margin-right: 0 !important; margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -192,7 +248,7 @@
     <h1>あなたの「心理・福祉学科で学びたい」を<br>大切にします。</h1>
     <div class="main-catch">
         やる気、熱意、そしてあなたの歩み。<br>
-        「心理・福祉学科なら。大丈夫。」
+        「心理・福祉学科なら、大丈夫。」
     </div>
 </header>
 
@@ -203,29 +259,86 @@
             <span class="em-title">総合型選抜入試</span>
             <span style="font-size: 1.2em;">2026年度 募集定員</span>
             <span class="capacity-focus">18名 に大幅アップ！</span>
-            <p>あなたの意欲に応えるため、門戸を大きく広げてお待ちしています。</p>
+            <p>出願手続きがよりシンプルに。あなたの意欲に応えるため、門戸を大きく広げています。</p>
+        </div>
+    </section>
+
+    <section class="highlight-box">
+        <img src="しんぷくちゃん応援してる.jpeg" alt="しんぷくちゃん応援" class="shinpuku-img" style="max-width: 300px; display: block; margin: 0 auto 15px auto;">
+        <div class="shinpuku-flex" style="display: flex; align-items: center;">
+            <p>心理の「しん」と福祉の「ぷく」が名前の由来。おもちの妖精で、好きな言葉は「ありがとう」と「感謝」。学生さんと共に日々成長中です。</p>
+        </div>
+    </section>
+
+    <section id="admission-official">
+        <div class="admission-site-box">
+            <h3 style="margin-top:0; color:var(--sub-green);">願書の入手・入試詳細はこちら</h3>
+            <p>大阪大谷大学の公式受験生応援サイト「Club OH」にて、Web出願の詳細やパンフレットの請求が可能です。</p>
+            <a href="https://www.osaka-ohtani.ac.jp/club-oh/" class="btn-official" target="_blank">受験生応援サイト Club OH へ</a>
         </div>
     </section>
 
     <section id="recommend">
         <div class="recommend-card">
             <span style="background: #d32f2f; color: white; padding: 5px 15px; border-radius: 5px; position: absolute; top: -15px; left: 20px;">特におすすめ！</span>
-            <h2 style="font-size: 1.8em; margin-bottom: 20px;">オープンキャンパス参加型<br><span style="font-size: 1.3em; color: #d32f2f;">総合型選抜入試</span></h2>
+            <h2 style="font-size: 1.8em; margin-bottom: 20px; border:none; background:none; padding:0;">オープンキャンパス参加型<br><span style="font-size: 1.3em; color: #d32f2f;">総合型選抜入試</span></h2>
             <p>
-                心理・福祉学科の空気感を肌で感じ、あなたの「ここで学びたい」という気持ちを直接伝えてください。<br>
-                <strong>※本入試は、オープンキャンパスに参加して教員と直接お話し（個別相談）をすることで受験できるようになり、これが受験資格の成立要件となります。</strong>
+                本入試は、<strong>心理・福祉学科のオープンキャンパスに参加し、教員と個別相談をすること</strong>が受験資格の成立要件となります。
+                学科の雰囲気を肌で感じ、あなたの「学びたい」という気持ちを直接伝えてください。詳しい手続きは、総合型選抜入試のパンフレットをご覧ください。
             </p>
-            
-            <h3 style="margin-top: 30px;">面接では、あなたの「実感」を聞かせてください</h3>
-            <ul style="line-height: 2;">
-                <li><strong>先生と学生の距離の近さ</strong>：教職員がいかに学生一人ひとりをサポートしているか、その雰囲気。</li>
-                <li><strong>在学生の姿</strong>：いきいきと過ごす先輩たちの様子から感じたこと。</li>
-                <li><strong>模擬授業の感想</strong>：授業を受けて興味を持ったこと、発見したことを<strong>自分の言葉で</strong>。</li>
-            </ul>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                ※オープンキャンパスでは「エントリーシートの書き方ガイド」や「記入見本」をお渡ししています。
+            </p>
+        </div>
+    </section>
 
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="oc.html" class="btn-apply" style="background-color: #d32f2f;">オープンキャンパス特別ページはこちら</a>
+    <section id="flow">
+        <h2>選考のステップ（スケジュール）</h2>
+        <div class="flow-container">
+            <div class="flow-step">
+                <h4>① オープンキャンパス参加・個別相談</h4>
+                <p>学科のOCに参加して個別相談を行います。これで受験資格が得られます。</p>
             </div>
+            <div class="flow-step">
+                <span class="flow-date">2026年 9/1 〜 9/10</span>
+                <h4>② Webエントリー</h4>
+                <p>Webで申し込みを行い、作成したエントリーシートをPDFで添付して提出します。</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-date">9月19日(土)</span>
+                <h4>③ 第一次選考（個人面談）</h4>
+                <p>大学にて面談を行います。エントリーシートの内容や、OCでの気づき、入学意欲についてお聞きします。</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-date">9月26日(木)</span>
+                <h4>④ 第一次選考 結果発表</h4>
+                <p>通過された方は、第二次選考（正式出願）に進むことができます。</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-date">9/28 〜 10/8(木)</span>
+                <h4>⑤ 第二次選考 Web出願</h4>
+                <p>検定料の納付、高校の調査書、および<strong>レポート課題</strong>を提出します。</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-date">10月17日(土)</span>
+                <h4>⑥ 第二次選考（書類審査）</h4>
+                <p>提出されたレポートと調査書により選考されます。大学に来場する必要はありません。</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-date">10月21日(水)</span>
+                <h4>⑦ 合格発表</h4>
+                <p>合格おめでとうございます！</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="report">
+        <h2>第二次選考 レポート課題</h2>
+        <div class="report-box">
+            <p style="font-weight: 900; color: #d32f2f; margin-bottom: 10px;">【文字数：800字程度】</p>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                <strong>『オープンキャンパス参加を踏まえてあなたが心理・福祉学科において取り組たいと思う学びや経験について具体的に書いてください』</strong>
+            </p>
         </div>
     </section>
 
@@ -242,19 +355,12 @@
         </div>
     </section>
 
-    <section id="empathy">
-        <h2>「経験」は、人を支える「専門性」に変わる</h2>
-        <p>
-            これまでの歩みをしっかりと受け止め、それを確かな専門知識へと昇華させる。それが本学科の大きな特徴です。
-        </p>
-    </section>
-
     <section id="consultation">
         <h2>個別相談のご案内</h2>
         <div class="consultation-box">
             <p>「オープンキャンパスの日程が合わない」「遠方のため参加が難しい」といった方もご安心ください。</p>
             <p><strong>私たちは、あなたの事情に合わせて柔軟に「個別相談」を承ります。</strong></p>
-            <p>スポーツ活動との両立についても、在学生の事例を交えて丁寧にお話しします。どうぞ遠慮なく、あなたの思いをお聞かせください。</p>
+            <p>スポーツ活動との両立についても、在校生の事例を交えて丁寧にお話しします。どうぞ遠慮なく、あなたの思いをお聞かせください。</p>
             <div style="text-align: center;">
                 <a href="mailto:jinsha@osaka-ohtani.ac.jp" class="btn-apply">個別相談のお申し込みはこちら</a>
             </div>
@@ -272,7 +378,7 @@
         <strong>大阪大谷大学 人間社会学部 心理・福祉学科</strong><br>
         <div style="margin-top: 15px;">
             〒584-8540 大阪府富田林市錦織北3丁目11番1号<br>
-            Tel: 0721-24-1042 / Email: <a href="mailto:jinsha@osaka-ohtani.ac.jp">jinsha@osaka-ohtani.ac.jp</a><br>
+            Tel: 0721-24-1042（学科事務室） / Email: <a href="mailto:jinsha@osaka-ohtani.ac.jp">jinsha@osaka-ohtani.ac.jp</a><br>
             Instagram: <a href="https://www.instagram.com/ooupsysw/" target="_blank">@ooupsysw</a>
         </div>
         <p style="font-size:0.75em; margin-top:25px; opacity:0.6;">&copy; 2026 Osaka Ohtani University Dept. of Psychology and Social Welfare.</p>
